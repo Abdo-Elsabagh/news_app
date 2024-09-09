@@ -18,15 +18,13 @@ class CategoriesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 85,
-      child: ListView.separated(
+      child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: categories.length,
         itemBuilder: (context, index) {
-          return CategoryCaed(category: categories[index]);
-        },
-        separatorBuilder: (context, index) {
-          return const SizedBox(
-            width: 10,
+          return Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: CategoryCaed(category: categories[index]),
           );
         },
       ),
