@@ -40,7 +40,7 @@ class HomeView extends StatelessWidget {
                   child: SizedBox(
                 height: 32,
               )),
-              SliverToBoxAdapter(child: NewsListViem())
+              NewsListViem()
             ],
           ),
           // child: Column(
