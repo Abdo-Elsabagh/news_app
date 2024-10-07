@@ -14,23 +14,33 @@ class NewsListViem extends StatefulWidget {
 class _NewsListViemState extends State<NewsListViem> {
   @override
   List<ArticleModel> articles = [];
+  bool isLoad = true;
   @override
-  void initState() async {
+  void initState() {
     super.initState();
+    getGeneralNews();
+  }
+
+  Future<void> getGeneralNews() async {
     articles = await NewsService(Dio()).getNews();
+    isLoad = false;
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-        delegate: SliverChildBuilderDelegate(childCount: articles.length,
-            (context, index) {
-      return Padding(
-        padding: const EdgeInsets.only(bottom: 16),
-        child: NewsTile(
-          articleModel: articles[index],
-        ),
-      );
-    }));
+    return isLoad
+        ? const SliverToBoxAdapter(
+            child: Center(child: CircularProgressIndicator()))
+        : SliverList(
+            delegate: SliverChildBuilderDelegate(childCount: articles.length,
+                (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 16),
+              child: NewsTile(
+                articleModel: articles[index],
+              ),
+            );
+          }));
   }
 }

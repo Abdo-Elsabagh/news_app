@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/models/article_model.dart';
 
 class NewsTile extends StatelessWidget {
-  const NewsTile({
-    super.key,
-    required this.articleModel,
-  });
+  const NewsTile({super.key, required this.articleModel});
   final ArticleModel articleModel;
   @override
   Widget build(BuildContext context) {
@@ -15,7 +12,8 @@ class NewsTile extends StatelessWidget {
         ClipRRect(
             borderRadius: BorderRadius.circular(6),
             child: Image.network(
-              articleModel.image!,
+              articleModel.image ??
+                  'https://lualuatv.press/wp-content/uploads/2024/07/blank-white-background-xbsfzsltjksfompa-1024x599.jpg',
               height: 200,
               width: double.infinity,
               fit: BoxFit.cover,
