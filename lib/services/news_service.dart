@@ -26,6 +26,6 @@ class NewsService {
       );
       articlesList.add(articleModel);
     }
-    return articlesList; 
+    return articlesList;
   }
 }
