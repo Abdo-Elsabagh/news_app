@@ -39,7 +39,9 @@ class HomeView extends StatelessWidget {
                   child: SizedBox(
                 height: 32,
               )),
-              NewsListViewBuilder(category: 'general',)
+              NewsListViewBuilder(
+                category: 'general',
+              )
             ],
           ),
           // child: Column(
