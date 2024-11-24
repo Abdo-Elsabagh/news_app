@@ -11,7 +11,9 @@ class CategoryCaed extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) {
-            return const CategroyViem();
+            return CategroyViem(
+              category: category.categoryName,
+            );
           },
         ));
       },
