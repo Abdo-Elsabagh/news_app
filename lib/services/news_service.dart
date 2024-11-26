@@ -18,7 +18,11 @@ class NewsService {
       // }
 
       List<ArticleModel> articlesList = [];
-
+      
+      // for (var article in articles) {
+      //   ArticleModel articleModel = ArticleModel.fromJsom(article);
+      //   articlesList.add(articleModel);
+      // }
       for (var article in articles) {
         ArticleModel articleModel = ArticleModel(
           image: article['urlToImage'],
